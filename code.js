@@ -1,7 +1,7 @@
 let numBonesNeeded = 5;
 let numBonesHidden = 0;
 let numBonesFound = 0;
-let randomDanger = Math.floor(Math.random()) + 15 + '%';
+let dangerPercent = 0;
 
 $("span#bones").text(5);
 
@@ -62,17 +62,21 @@ function playerGuess() {
 
     let isSurprise = clickedSpan.hasClass("surprise");
 
-    // generate randomDanger between 5-10
+    // generate randomDanger between 15-25%
+    let randomDanger = Math.floor(Math.random() * 10) + 15;
+    (dangerPercent += randomDanger);
+    dangerPercent = Math.min(dangerPercent, 100);
+    let addWidth =  dangerPercent + '%';
+
 
     // use jQuery to get div#danger add randomDanger width
-    let startWidth = $("div#danger").css("width", randomDanger);
-
-    // if the clickedSpan is clicked, add randomDanger
+    $("div#danger").css("width", addWidth);
 
 
     // if div#danger fills to 100% output text "LOSE"
-    if (startWidth === 100) {
+    if (dangerPercent >= 100) {
         $("p#loser").text("YOU LOSE!");
+        $("span").off("click");
     }
 
     if (isSurprise === true) {
