@@ -1,0 +1,40 @@
+body {
+    text-align: center;
+    background-color: tan;
+    font-family: 'Advent Pro', sans-serif;
+    padding-top: 25px;
+}
+
+span.square {
+    display: inline-grid;
+    border-style: solid;
+    background-color: green;
+    border-radius: 10px;
+    transition: all .05s ease-in-out;
+}
+
+span.square:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+div#danger {
+    height: 30px;
+    background-color: red;
+    width: 0;
+}
+
+div#myProgress {
+    width: 100%;
+    background-color: green;
+}
+
+p {
+    font-size: 22px;
+}
+
+p#dangerMeter {
+    text-align: center;
+    font-size: 22px;
+}
+
