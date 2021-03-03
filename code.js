@@ -1,22 +1,20 @@
-let numBonesNeeded = 5;
+const NUMBONES = 7;
 let numBonesHidden = 0;
 let numBonesFound = 0;
 let dangerPercent = 0;
 
-$("span#bones").text(5);
+$("span#bones").text(NUMBONES);
 
 $(document).ready(function() {
-    let numRowsNeeded = 5;
     let numRowsCreated = 0;
 
 
-    while(numRowsCreated < numRowsNeeded)
+    while(numRowsCreated < NUMBONES)
     {
         // begin creating a row of 5 squares
-        let numSquaresNeeded = 5;
         let numSquaresCreated = 0;
 
-        while (numSquaresCreated < numSquaresNeeded) {
+        while (numSquaresCreated < NUMBONES) {
             createSquare();
             numSquaresCreated++;
         }
@@ -34,7 +32,7 @@ $(document).ready(function() {
 
     // while number of surprises successfully hidden < 5
 
-    while (numBonesHidden < numBonesNeeded) {
+    while (numBonesHidden < NUMBONES) {
         // pick a random square
         // pick a random number between 0 and 24
         let randomNumber = Math.floor(Math.random() * 25);
@@ -89,7 +87,7 @@ function playerGuess() {
 
         $(clickedSpan).off("click");
 
-        if (numBonesFound === 5) {
+        if (numBonesFound === NUMBONES) {
             $("p#winner").text("YOU WIN!");
         }
 
