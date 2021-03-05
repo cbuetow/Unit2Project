@@ -1,4 +1,4 @@
-const NUMBONES = 7;
+const NUMBONES = 5;
 let numBonesHidden = 0;
 let numBonesFound = 0;
 let dangerPercent = 0;
